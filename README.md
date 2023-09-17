@@ -36,6 +36,7 @@ These instructions will help you get a copy of the project up and running on you
 
 Before you begin, ensure you have met the following requirements:
 
+- [function pointers]
 - [varadic functions]
 - [typedef & structures]
 
@@ -44,5 +45,4 @@ Before you begin, ensure you have met the following requirements:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/printf-project.git
-
+	https://github.com/Chymezy/printf.git
