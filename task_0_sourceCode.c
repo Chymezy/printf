@@ -21,6 +21,9 @@ int _printf(const char *format, ...)
 	int printed_chars = 0;
 	va_list args;
 
+	if (format)
+		return (-1);
+
 	va_start(args, format);
 	printed_chars = print_format(format, args);
 	va_end(args);
