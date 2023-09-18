@@ -41,6 +41,9 @@ int print_format(const char *format, va_list args)
 
 	while (*format)
 	{
+		if (*format == '\0')
+			break;
+
 		if (*format != '%')
 		{
 			putchar(*format);
