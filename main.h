@@ -6,7 +6,6 @@
 
 /* Function prototypes */
 
-
 /**
  * _printf - Custom printf function
  * @format: The format string
@@ -46,9 +45,9 @@ int print_number(int num);
 int print_string(const char *str);
 
 /**
- * _putchar - print character to stdout
- * @c: character to be printed
- * Return: The character ASCII value
+ * _putchar - Writes a character to stdout
+ * @c: The character to print
+ * Return: On success 1, on error -1
  */
 int _putchar(char c);
 

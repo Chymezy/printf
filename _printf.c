@@ -8,15 +8,42 @@
  */
 int _printf(const char *format, ...)
 {
-	int printed_chars = 0;
 	va_list args;
+	int printed_chars = 0;
 
 	if (format == NULL)
 		return (-1);
 
 	va_start(args, format);
-	printed_chars = print_format(format, args);
+	while (*format)
+	{
+		if (*format != '%')
+		{
+			_putchar(*format);
+			printed_chars++;
+		}
+		else
+		{
+			format++;
+			if (*format == '\0')
+			{
+				_putchar('%');
+				return (-1);
+			}
+			else if (*format == '%')
+			{
+				_putchar('%');
+				printed_chars++;
+			}
+			else
+			{
+				printed_chars += handle_format_specifier(*format, args);
+			}
+		}
+		format++;
+	}
 	va_end(args);
 
 	return (printed_chars);
 }
+
