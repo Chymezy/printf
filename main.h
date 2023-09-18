@@ -1,8 +1,13 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdarg.h>
+#include <unistd.h>
+#include <stdlib.h>
 
 /* Function prototypes */
+
+int _putchar(char c);
 
 /**
  * _printf - Custom printf function
