@@ -1,8 +1,6 @@
 #include <stdarg.h>
-#include <stdio.h>
 #include <unistd.h>
 #include "main.h"
-#include <stdlib.h>
 
 int print_format(const char *format, va_list args);
 int handle_format_specifier(char specifier, va_list args);
@@ -89,10 +87,6 @@ int handle_format_specifier(char specifier, va_list args)
 	{
 		putchar('%');
 		return (1);
-	}
-	else if (specifier == 'd' || specifier == 'i')
-	{
-		return (print_number(va_arg(args, int)));
 	}
 
 	putchar('%');
