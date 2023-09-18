@@ -2,9 +2,8 @@
 #include <unistd.h>
 #include <stdio.h>
 #include "main.h"
-#include <stdlib.h> /* Include the stdlib.h header for exit function */
+#include <stdlib.h>
 
-/* Forward declarations */
 int print_format(const char *format, va_list args);
 int handle_format_specifier(char specifier, va_list args);
 int print_number(int num);
@@ -14,7 +13,7 @@ int print_string(const char *str);
  * _printf - Custom printf function
  * @format: The format string
  * Return: Number of characters printed (excluding null byte) on success,
- *         -1 on error, and it may exit the program on critical error
+ * -1 on error, and it may exit the program on critical error
  */
 int _printf(const char *format, ...)
 {
@@ -50,7 +49,7 @@ int print_format(const char *format, va_list args)
 		}
 		else
 		{
-			format++; /* Move past the '%' */
+			format++;
 			if (*format == '\0')
 			{
 				putchar('%');
@@ -153,4 +152,3 @@ int print_string(const char *str)
 
 	return (printed_chars);
 }
-
