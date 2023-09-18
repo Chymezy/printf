@@ -6,7 +6,6 @@
 
 /* Function prototypes */
 
-int _putchar(char c);
 
 /**
  * _printf - Custom printf function
@@ -51,6 +50,7 @@ int print_string(const char *str);
  * @c: character to be printed
  * Return: The character ASCII value
  */
+int _putchar(char c);
 
 #endif /* MAIN_H */
 
