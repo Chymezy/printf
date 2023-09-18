@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include "main.h"
 
+int _putchar(char c);
 int print_format(const char *format, va_list args);
 int handle_format_specifier(char specifier, va_list args);
 int print_number(int num);
@@ -43,7 +44,7 @@ int print_format(const char *format, va_list args)
 	{
 		if (*format != '%')
 		{
-			putchar(*format);
+			_putchar(*format);
 			printed_chars++;
 		}
 		else
@@ -73,7 +74,7 @@ int handle_format_specifier(char specifier, va_list args)
 	{
 		char c = va_arg(args, int);
 
-		putchar(c);
+		_putchar(c);
 		return (1);
 	}
 	else if (specifier == 's')
@@ -85,12 +86,12 @@ int handle_format_specifier(char specifier, va_list args)
 	}
 	else if (specifier == '%')
 	{
-		putchar('%');
+		_putchar('%');
 		return (1);
 	}
 
-	putchar('%');
-	putchar(specifier);
+	_putchar('%');
+	_putchar(specifier);
 	return (2); /* Return 2 for unsupported format specifier */
 }
 
@@ -105,21 +106,21 @@ int print_number(int num)
 
 	if (num < 0)
 	{
-		putchar('-');
+		_putchar('-');
 		printed_chars++;
 		num = -num;
 	}
 
 	if (num == 0)
 	{
-		putchar('0');
+		_putchar('0');
 		printed_chars++;
 	}
 	else
 	{
 		while (num != 0)
 		{
-			putchar('0' + (num % 10));
+			_putchar('0' + (num % 10));
 			printed_chars++;
 			num /= 10;
 		}
@@ -142,7 +143,7 @@ int print_string(const char *str)
 
 	while (*str)
 	{
-		putchar(*str);
+		_putchar(*str);
 		printed_chars++;
 		str++;
 	}
