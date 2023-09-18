@@ -1,6 +1,3 @@
-#include <stdarg.h>
-#include <stdio.h>
-#include <unistd.h>
 #include "main.h"
 
 int print_format(const char *format, va_list args);
@@ -52,7 +49,7 @@ int print_format(const char *format, va_list args)
 			if (*format == '\0')
 			{
 				putchar('%');
-				return (-1);
+				break;
 			}
 			printed_chars += handle_format_specifier(*format, args);
 		}
@@ -137,9 +134,6 @@ int print_number(int num)
 int print_string(const char *str)
 {
 	int printed_chars = 0;
-
-	if (str == NULL)
-		str = "(null)";
 
 	while (*str)
 	{
