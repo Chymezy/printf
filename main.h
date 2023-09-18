@@ -42,5 +42,12 @@ int print_number(int num);
  */
 int print_string(const char *str);
 
+/**
+ * _putchar - print character to stdout
+ * @c: character to be printed
+ * Return: The character ASCII value
+ */
+int _putchar(char c);
+
 #endif /* MAIN_H */
 
