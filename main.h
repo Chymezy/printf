@@ -3,7 +3,6 @@
 
 #include <stdarg.h>
 #include <unistd.h>
-#include <stdlib.h>
 
 /* Function prototypes */
 
@@ -52,7 +51,6 @@ int print_string(const char *str);
  * @c: character to be printed
  * Return: The character ASCII value
  */
-int _putchar(char c);
 
 #endif /* MAIN_H */
 
