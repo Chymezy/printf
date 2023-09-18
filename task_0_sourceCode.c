@@ -1,6 +1,6 @@
 #include <stdarg.h>
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
 #include "main.h"
 #include <stdlib.h>
 
@@ -13,7 +13,7 @@ int print_string(const char *str);
  * _printf - Custom printf function
  * @format: The format string
  * Return: Number of characters printed (excluding null byte) on success,
- * -1 on error, and it may exit the program on critical error
+ *         -1 on error, and it may exit the program on critical error
  */
 int _printf(const char *format, ...)
 {
@@ -97,7 +97,7 @@ int handle_format_specifier(char specifier, va_list args)
 
 	putchar('%');
 	putchar(specifier);
-	exit(EXIT_FAILURE);
+	return (2); /* Return 2 for unsupported format specifier */
 }
 
 /**
@@ -143,6 +143,9 @@ int print_string(const char *str)
 {
 	int printed_chars = 0;
 
+	if (str == NULL)
+		str = "(null)";
+
 	while (*str)
 	{
 		putchar(*str);
@@ -152,3 +155,4 @@ int print_string(const char *str)
 
 	return (printed_chars);
 }
+
