@@ -41,9 +41,6 @@ int print_format(const char *format, va_list args)
 
 	while (*format)
 	{
-		if (*format == '\0')
-			break;
-
 		if (*format != '%')
 		{
 			putchar(*format);
@@ -54,8 +51,7 @@ int print_format(const char *format, va_list args)
 			format++;
 			if (*format == '\0')
 			{
-				putchar('%');
-				return (-1);
+				break;
 			}
 			printed_chars += handle_format_specifier(*format, args);
 		}
@@ -75,7 +71,7 @@ int handle_format_specifier(char specifier, va_list args)
 {
 	if (specifier == 'c')
 	{
-		int c = va_arg(args, int);
+		char c = va_arg(args, int);
 
 		putchar(c);
 		return (1);
