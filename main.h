@@ -4,6 +4,8 @@
 
 /* Function prototypes */
 
+int _putchar(char c);
+
 /**
  * _printf - Custom printf function
  * @format: The format string
