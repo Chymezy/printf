@@ -2,54 +2,31 @@
 #define MAIN_H
 
 #include <stdarg.h>
-#include <unistd.h>
-
-/* Function prototypes */
-
-/**
- * _printf - Custom printf function
- * @format: The format string
- * Return: Number of characters printed (excluding null byte) on success,
- *         -1 on error, and it may exit the program on critical error
- */
-int _printf(const char *format, ...);
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 /**
- * print_format - Print the formatted output based on the format string
- * @format: The format string
- * @args: The variable argument list
- * Return: Number of characters printed
+ * struct convert - Struct to map conversion specifiers to functions
+ * @sym: The conversion specifier symbol
+ * @f: The corresponding function for the conversion specifier
  */
-int print_format(const char *format, va_list args);
+struct convert
+{
+	char *sym;
+	int (*f)(va_list);
+};
+typedef struct convert conver_t;
 
-/**
- * handle_format_specifier - Handle a format specifier
- * @specifier: The format specifier character
- * @args: The variable argument list
- * Return: Number of characters printed for the specifier
- */
-int handle_format_specifier(char specifier, va_list args);
-
-/**
- * print_number - Print an integer to stdout
- * @num: The integer to be printed
- * Return: The number of characters printed
- */
-int print_number(int num);
-
-/**
- * print_string - Print a string to stdout
- * @str: The string to be printed
- * Return: The number of characters printed
- */
-int print_string(const char *str);
-
-/**
- * _putchar - Writes a character to stdout
- * @c: The character to print
- * Return: On success 1, on error -1
- */
 int _putchar(char c);
+int _printf(const char *format, ...);
+void _vprintf(const char *format, va_list args);
+int parser(const char *format, conver_t funct_list[], va_list args);
+int p_char(va_list);
+int p_string(va_list args);
+int p_percent(va_list);
+int print_unsgined_number(unsigned int n);
+int print_number(va_list);
+int p_integer(va_list);
 
-#endif /* MAIN_H */
-
+#endif
