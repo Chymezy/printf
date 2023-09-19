@@ -29,5 +29,6 @@ int print_unsgined_number(unsigned int n);
 int print_number(va_list);
 int p_integer(va_list);
 int p_binary(va_list);
+int print_binary(unsigned int num);
 
 #endif
