@@ -37,6 +37,7 @@ These instructions will help you get a copy of the project up and running on you
 Before you begin, ensure you have met the following requirements:
 
 - [function pointers]
+- [Macros]
 - [varadic functions]
 - [typedef & structures]
 
