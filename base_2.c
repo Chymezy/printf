@@ -2,6 +2,25 @@
 #include "main.h"
 
 /**
+ * p_binary - Prints number in binary format
+ * @args: The argument number to print
+ *
+ * Return: Number of binary characters
+ */
+int p_binary(va_list args)
+{
+	unsigned int num = va_arg(args, unsigned int);
+	int counter = 0;
+
+	if (num == 0)
+		counter += _putchar('0');
+	else
+		counter += print_binary(num);
+
+	return (counter);
+}
+
+/**
  * print_binary - Convert and print number in binary formt
  * @num: The number to be converted
  *
