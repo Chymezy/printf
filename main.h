@@ -30,5 +30,13 @@ int print_number(va_list);
 int p_integer(va_list);
 int p_binary(va_list);
 int print_binary(unsigned int num);
+int p_unsigned(va_list);
+int print_unsigned(unsigned int num);
+int p_octal(va_list);
+int print_octal(unsigned int num);
+int p_hex_lower(va_list args);
+int p_hex_upper(va_list args);
+int convert_print(int length, unsigned int num, char *ptr, int uppercase);
+int print_hex(unsigned int num, int uppercase);
 
 #endif
