@@ -55,3 +55,24 @@ int p_integer(va_list args)
 	n = print_number(args);
 	return (n);
 }
+
+/**
+ * p_string_literal - Print a string literal or "(null)" if NULL.
+ * @s: The string to print.
+ *
+ * Return: The number of characters printed.
+ */
+int p_string_literal(const char *s)
+{
+	int i;
+
+	if (s == NULL)
+		s = "(null)";
+
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		_putchar(s[i]);
+	}
+
+	return (i);
+}
