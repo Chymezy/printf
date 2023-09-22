@@ -11,7 +11,8 @@ int print_unsigned_2(va_list args)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	unsigned int temp = num;
-	int digits = 0;
+	int i, len = 0, digits = 0;
+	char *str;
 
 	/* Calculate the number of digits */
 	do {
@@ -20,7 +21,7 @@ int print_unsigned_2(va_list args)
 	} while (temp > 0);
 
 	/* Allocate memory for the string representation */
-	char *str = (char *)malloc(digits + 1);
+	str = (char *)malloc(digits + 1);
 
 	if (str == NULL)
 	{
@@ -28,7 +29,7 @@ int print_unsigned_2(va_list args)
 	}
 
 	/* Convert the unsigned integer to a string */
-	for (int i = digits - 1; i >= 0; i--)
+	for (i = digits - 1; i >= 0; i--)
 	{
 		str[i] = (num % 10) + '0';
 		num /= 10;
@@ -36,9 +37,9 @@ int print_unsigned_2(va_list args)
 	str[digits] = '\0'; /* Null-terminate the string */
 
 	/* Print the string */
-	int len = 0;
+	len = 0;
 
-	for (int i = 0; str[i] != '\0'; i++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
 		_putchar(str[i]);
 		len++;

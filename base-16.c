@@ -10,9 +10,12 @@
 int print_hex(va_list args, int uppercase)
 {
 	unsigned int num = va_arg(args, unsigned int);
-
-	int maxDigits = 0;
 	unsigned int temp = num;
+	char *hex;
+	const char *hexCharsLower = "0123456789abcdef";
+	const char *hexCharsUpper = "0123456789ABCDEF";
+	const char *hexChars = (uppercase ? hexCharsUpper : hexCharsLower);
+	int i, printed_chars = 0, maxDigits = 0;
 
 	while (temp > 0)
 	{
@@ -20,15 +23,12 @@ int print_hex(va_list args, int uppercase)
 		temp /= 16;
 	}
 
-	char *hex = (char *)malloc(maxDigits + 1);
+	hex = (char *)malloc(maxDigits + 1);
 
 	if (hex == NULL)
 		return (-1);
-	const char *hexCharsLower = "0123456789abcdef";
-	const char *hexCharsUpper = "0123456789ABCDEF";
-	const char *hexChars = (uppercase ? hexCharsUpper : hexCharsLower);
 
-	int i = maxDigits - 1;
+	i = maxDigits - 1;
 
 	while (i >= 0)
 	{
@@ -37,7 +37,6 @@ int print_hex(va_list args, int uppercase)
 		i--;
 	}
 	hex[maxDigits] = '\0';
-	int printed_chars = 0;
 
 	i = 0;
 	while (hex[i] != '\0')
