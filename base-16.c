@@ -17,6 +17,9 @@ int print_hex(va_list args, int uppercase)
 	const char *hexChars = (uppercase ? hexCharsUpper : hexCharsLower);
 	int i, printed_chars = 0, maxDigits = 0;
 
+	if (temp == 0)
+		maxDigits = 1;
+
 	while (temp > 0)
 	{
 		maxDigits++;
