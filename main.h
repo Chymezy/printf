@@ -40,6 +40,7 @@ int print_hex_lower(va_list args);
 int print_hex_upper(va_list args);
 int print_custom_string(va_list args);
 int print_hex_2(char c);
+int isPointerArgumentNull(void *pt);
 int print_pointer(va_list args);
 int p_string_literal(const char *s);
 void _flush_buffer(void);
