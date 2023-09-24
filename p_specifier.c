@@ -16,9 +16,7 @@ int print_pointer(va_list args)
 	uintptr_t temp = address;
 	char *hexAddress;
 
-	_putchar('0');
-	_putchar('x');
-	len += 2;
+	len = isPointerArgumentNull(ptr);
 
 	while (temp > 0)
 	{
@@ -48,3 +46,22 @@ int print_pointer(va_list args)
 	return (len);
 }
 
+/**
+ * isPointerArgumentNull - Check if the pointer argument passed is NULL
+ * @ptr: Pointer to check
+ *
+ * Return: -1 if the pointer is NULL
+ */
+int isPointerArgumentNull(void *ptr)
+{
+	if (ptr == NULL)
+	{
+		_printf("(nil)");
+		return (-1);
+	}
+
+	_putchar('0');
+	_putchar('x');
+
+	return (2);
+}
